@@ -19,6 +19,10 @@
 </table>
 
 <h2>New book</h2>
+<% if @book.errors.any? %>
+  <p>Error. Try again.</p>
+<% end %>
+
 <%= form_with model: @book do |f| %>
   <p>Title</p>
   <%= f.text_field :title %>

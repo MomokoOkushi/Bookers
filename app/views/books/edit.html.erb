@@ -1,5 +1,10 @@
 <h1>Editing Book</h1>
+
 <%= form_with model: @book, url: update_book_path(@book.id), method: :patch do |f| %>
+  <% if @book.errors.any? %>
+  <p>Error. Try again.</p>
+  <% end %>
+
   <h4>Title</h4>
   <%=f.text_field :title %>
 
