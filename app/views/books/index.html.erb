@@ -20,7 +20,12 @@
 
 <h2>New book</h2>
 <% if @book.errors.any? %>
-  <p>Error. Try again.</p>
+  <p>error. Try again.</p>
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
 <% end %>
 
 <%= form_with model: @book do |f| %>

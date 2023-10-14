@@ -1,9 +1,12 @@
 <h1>Editing Book</h1>
+  <% if @book.errors.any? %>
+    <p>error. Try again.</p>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  <% end %>
 
 <%= form_with model: @book, url: update_book_path(@book.id), method: :patch do |f| %>
-  <% if @book.errors.any? %>
-  <p>Error. Try again.</p>
-  <% end %>
 
   <h4>Title</h4>
   <%=f.text_field :title %>
